@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine, text, MetaData, Table
 import configparser
 import os
-db_username = os.environ.get('DB_USERNAME')
-db_password = os.environ.get('DB_PASSWORD')
+config = configparser.ConfigParser()
+config.read('config.ini')
 
+db_username = config['database']['username']
+db_password = config['database']['password']
 db_connection_string= f"mysql+pymysql://{db_username}:{db_password}@aws.connect.psdb.cloud/webshop?charset=utf8mb4"
 engine = create_engine(db_connection_string,
         connect_args={
@@ -27,3 +29,15 @@ def load_films_from_db():
 
 
     return rows_dict_list
+
+
+def load_film_from_db(film_id):
+    # Connect to the database
+    with engine.connect() as connection:
+        # Execute a SELECT query to fetch a specific film by id
+        result = connection.execute(films_table.select().where(films_table.c.id == film_id))
+
+        # Fetch the film as a dictionary
+        film = dict(zip(result.keys(), result.fetchone()))
+
+    return film
