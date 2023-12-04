@@ -1,12 +1,12 @@
 from sqlalchemy import create_engine, text, MetaData, Table
 import configparser
-
+import os
 config = configparser.ConfigParser()
 config.read('config.ini')
 
 db_username = config['database']['username']
 db_password = config['database']['password']
-db_connection_string= "mysql+pymysql://"+db_username+":"+db_password+"@aws.connect.psdb.cloud/webshop?charset=utf8mb4"
+db_connection_string= f"mysql+pymysql://{db_username}:{db_password}@aws.connect.psdb.cloud/webshop?charset=utf8mb4"
 engine = create_engine(db_connection_string,
         connect_args={
         "ssl": {
