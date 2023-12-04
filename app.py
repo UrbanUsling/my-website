@@ -15,7 +15,10 @@ def load_films_from_db():
         result = connection.execute(films_table.select())
 
         # Fetch all rows as a list of dictionaries
-        rows_dict_list = [dict(row) for row in result]
+        rows = result.fetchall()
+        column_names = result.keys()
+        rows_dict_list = [dict(zip(column_names, row)) for row in rows]
+
 
     return rows_dict_list
     
