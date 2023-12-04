@@ -1,27 +1,8 @@
 from flask import Flask, render_template, jsonify
-from database import engine #"kan importera från andra filer"
+from database import load_films_from_db #"kan importera från andra filer"
 from sqlalchemy import text, MetaData, Table
 
 app = Flask(__name__)
-
-
-metadata = MetaData()
-films_table = Table('films', metadata, autoload_with=engine)
-
-def load_films_from_db():
-    # Connect to the database
-    with engine.connect() as connection:
-        # Execute a SELECT query to fetch all rows from the 'films' table
-        result = connection.execute(films_table.select())
-
-        # Fetch all rows as a list of dictionaries
-        rows = result.fetchall()
-        column_names = result.keys()
-        rows_dict_list = [dict(zip(column_names, row)) for row in rows]
-
-
-    return rows_dict_list
-    
 
 
 @app.route("/")

@@ -15,13 +15,17 @@ engine = create_engine(db_connection_string,
     }            )
 metadata = MetaData()
 films_table = Table('films', metadata, autoload_with=engine)
-#namnger en connection till conn
-with engine.connect() as conn:
-    result = conn.execute(films_table.select())
 
-    # Fetch all rows as a list of dictionaries
-    rows_dict_list = result.fetchall()
+def load_films_from_db():
+    # Connect to the database
+    with engine.connect() as connection:
+        # Execute a SELECT query to fetch all rows from the 'films' table
+        result = connection.execute(films_table.select())
 
-# Print the resulting list of dictionaries
-for row_dict in rows_dict_list:
-    print(row_dict)
+        # Fetch all rows as a list of dictionaries
+        rows = result.fetchall()
+        column_names = result.keys()
+        rows_dict_list = [dict(zip(column_names, row)) for row in rows]
+
+
+    return rows_dict_list
