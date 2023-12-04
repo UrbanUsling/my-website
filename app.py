@@ -10,9 +10,10 @@ def hello_world():
     films_data = load_films_from_db()
     return render_template('home.html', jobs=films_data, greet='Hej')
 
-@app.route("/jobs")
+@app.route("/films")
 def list_jobs():
-    return jsonify(JOBS)
+    films_data = load_films_from_db()
+    return jsonify(films_data)
   
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)  
