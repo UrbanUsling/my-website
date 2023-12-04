@@ -1,31 +1,30 @@
 from flask import Flask, render_template, jsonify
+from database import engine #"kan importera från andra filer"
+from sqlalchemy import text, MetaData, Table
 
 app = Flask(__name__)
 
-JOBS = [
-    {
-        'id': 1,
-        'title': "Data Analyst",
-        'location' : 'Stockholm, Sweden',
-        'salary' : '100 000'
-    },
-    {
-        'id': 2,
-        'title': "Programmer",
-        'location' : 'Göteborg, Sweden',
-        'salary' : '200 000'
-    },
-    {
-        'id': 3,
-        'title': "Tester",
-        'location' : 'Stockholm, Sweden',
-        'salary' : '300 000'
-    }
-]
+
+metadata = MetaData()
+films_table = Table('films', metadata, autoload_with=engine)
+
+def load_films_from_db():
+    # Connect to the database
+    with engine.connect() as connection:
+        # Execute a SELECT query to fetch all rows from the 'films' table
+        result = connection.execute(films_table.select())
+
+        # Fetch all rows as a list of dictionaries
+        rows_dict_list = [dict(row) for row in result]
+
+    return rows_dict_list
+    
+
 
 @app.route("/")
 def hello_world():
-    return render_template('home.html', jobs=JOBS, greet='Hej')
+    films_data = load_films_from_db()
+    return render_template('home.html', jobs=films_data, greet='Hej')
 
 @app.route("/jobs")
 def list_jobs():
