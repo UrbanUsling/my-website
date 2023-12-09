@@ -12,10 +12,22 @@ h1{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .passa{
-    height: 320px;
-    width: auto;
+    margin-top: 10px;
+    height: 320px; /* Set the desired height */
+    width: auto;   /* Automatically adjust the width */
+    max-width: 100%; /* Ensure the image does not exceed the card width */
+    object-fit: contain
 }
 .anpassBild{
-    height: 500px;
-    width: auto;
+    margin-top: 10px;
+    height: 500px; /* Set the desired height */
+    width: auto;   /* Automatically adjust the width */
+    max-width: 100%; /* Ensure the image does not exceed the card width */
+    object-fit: contain
+}
+.custom-card-body {
+    max-width: 100%; /* Add padding to the card body to reduce text width */
+}
+.custom-card {
+    max-width: 350px;   
 }

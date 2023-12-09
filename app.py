@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from database import load_films_from_db #"kan importera från andra filer"
 from database import load_film_from_db
 from sqlalchemy import text, MetaData, Table
@@ -24,6 +24,11 @@ def list_film(id):
         return render_template(template_name, film=film)
     else:
         return jsonify({"error": "Film not found"}), 404
+    
+@app.route("/terms")
+def terms():
+    return render_template('terms.html')
   
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)  
+    app.run(host='0.0.0.0', debug=True) 
+    
