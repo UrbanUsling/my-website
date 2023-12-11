@@ -1,18 +1,27 @@
-<form>
-    <div class="mb-3">
-        <label for="exampleInputFullName" class="form-label">Fullständigt namn</label>
-        <input type="full_name" class="form-control" id="exampleInputFullName" aria-describedby="FullNameHelp">
-      </div>
-    <div class="mb-3">
+<form action="/confirmation" class="form_reg" style="margin-top: 30px;" id="myForm" onsubmit="submitForm(); return false;" method="post">
+  <div class="mb-3 reg">
+      <label for="title" class="form-label">Registrering för nyhetsbrev</label>
+  </div>
+  <div class="mb-3 reg">
+      <label for="exampleInputFullName" class="form-label">Fullständigt namn</label>
+      <input type="text" class="form-control" name="full_name" id="exampleInputFullName" style="width: 40ch;" aria-describedby="FullNameHelp" required>
+  </div>
+  <div class="mb-3 reg">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3 form-check">
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" style="width: 40ch;" aria-describedby="emailHelp" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+  </div>
+  <div class="mb-3 form-check check_reg">
       <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="enableSubmit()">
       <label class="form-check-label" for="exampleCheck1">Jag godkänner  <a href="/terms" id="termsLink">villkoren</a></label>
-    </div>
-    <div id="iframeContainer" style="display: none;">
+  </div>
+  <div id="iframeContainer" style="display: none;">
       <iframe name="termsFrame" style="width: 100%; height: 300px; border: 1px solid #ccc;"></iframe>
   </div>
-    <button type="submit" class="btn btn-primary" id="submitButton" disabled>Submit</button>
-  </form>
+  <button type="submit" class="btn btn-primary" id="submitButton" disabled>Submit</button>
+</form>
+
+
+
+<div id="iframeContainer2" style="display: none;">
+    <iframe id="iframe" name="termsFrame" style="width: 50%; height: 100px; margin-top: 20px; margin-left: 25%; border: 1px solid #ccc;"></iframe>
+</div>

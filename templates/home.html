@@ -6,8 +6,8 @@
 <body>
     {% include 'nav.html' %}
     <h1 style ="margin-bottom: 20px;">{{greet}}Hej Pa</h1>
-    <div class ='text-center container' style = "margin-left: 35%;">{% for job in jobs%}
-        {% include 'jobitem.html' %}
+    <div class ='text-center container' style = "margin-left: 35%;">{% for film in films%}
+        {% include 'film_items.html' %}
         {% endfor %}
     </div>
         {% include 'homePhotos.html' %}
