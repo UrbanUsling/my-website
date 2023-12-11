@@ -3,6 +3,7 @@ from database import load_films_from_db #"kan importera från andra filer"
 from database import load_film_from_db, confirm_newsletter, load_newsletters_from_db
 from sqlalchemy import text, MetaData, Table
 
+
 app = Flask(__name__)
 
 

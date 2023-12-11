@@ -5,10 +5,7 @@
     <title>Bekräftelse</title>
 </head>
 <body>
-    <div class="container" style="margin-top: 20px;">
-    <p>Välkommen {{ person.full_name }}!
-        En bekräftelse har skickats till {{ person.email }}.
-    </p> 
-    </div>
+    <div id="root"></div>
+    <script src="{{ url_for('static', filename='js/confirmation.js') }}"></script>
 </body>
 </html>
