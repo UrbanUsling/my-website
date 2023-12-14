@@ -1,1 +1,0 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("termsLink"),t=document.getElementById("iframeContainer");e&&t&&e.addEventListener("click",(function(e){e.preventDefault(),t.style.display="block";const n=t.querySelector("iframe");n&&(n.src="/terms")}))}))})();

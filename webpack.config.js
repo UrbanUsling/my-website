@@ -2,9 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/home.tsx',
+  entry: {
+    bundle: './src/home.tsx',
+    cardTemplate: "./src/cardTemplate.tsx"
+},
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: "/static/js/",
     //path: path.resolve(__dirname, 'public')//current and absolute path joined together
     path: path.resolve(__dirname, 'static', 'js'),

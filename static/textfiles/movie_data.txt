@@ -1,0 +1,11 @@
+Gone with the wind
+Höjdpunkten i Hollowooods filmskapande. Stort projekt av en populär bok om ett kontroversiellt tema. Står sig än idag
+static/images/Gonew.jpg
+
+Hedy Lamarr
+'The most beautiful woman in the world' kallades hon av sin agent. Hon flydde europa innan kriget och la grunden för dagens wifi när hon tog fram teknik för att styra torpeder
+static/images/Hedy.jpg
+
+Humphrey Bogart
+Hårdkokt cyniker som var enorm under 30- och 40-talet. Han hade ofta ett hjärta under den tuffa fasaden
+static/images/Humphrey.jpg

@@ -49,6 +49,18 @@ function enableSubmit() {
     }
 }
 
+function handleApiResponse(response) {
+    var iframe = document.getElementById("iframe");
+
+    if (response && response.success != null) {
+        renderConfirmation(response.person, response.success);
+    }
+
+    if (iframe && response.html != null) {
+        iframe.contentDocument.body.innerHTML = response.html;
+    }
+}
+
 function submitForm() {
     // Get the form and iframe elements
     var form = document.getElementById("myForm");
@@ -75,10 +87,13 @@ function submitForm() {
     // Set the onload event handler to handle the response
     xhr.onload = function () {
         if (xhr.status === 200) {
-            // Update the iframe content with the response
-            var iframe = document.getElementById("iframe");
-            if (iframe) {
-                iframe.contentDocument.body.innerHTML = xhr.responseText;
+            try {
+                // Try to parse the response as JSON
+                var response = JSON.parse(xhr.responseText);
+                handleApiResponse(response);
+            } catch (e) {
+                // If parsing as JSON fails, assume it's HTML
+                handleApiResponse({ html: xhr.responseText });
             }
         } else {
             // Handle errors

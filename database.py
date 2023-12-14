@@ -67,3 +67,6 @@ def confirm_newsletter(full_name, email):
         # If the email doesn't exist, insert a new entry
         if not existing_entry:
             connection.execute(text("INSERT INTO newsletter (full_name, email) VALUES (:full_name, :email)"), {'full_name': full_name, 'email': email})
+            return True  # Email added successfully
+        else:
+            return False  # Email already exists

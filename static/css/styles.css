@@ -1,7 +1,12 @@
 h1{
-    color: rgb(0, 14, 197);
     text-align: center;
 
+}
+h3{
+    text-align: center;
+}
+.headers{
+    color: #3366cc;
 }
 #banner{
     width: 50%;

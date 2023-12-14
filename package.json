@@ -8,7 +8,7 @@
     "serve": "webpack-dev-server --open",
     "build": "webpack",
     "test": "echo\"Eror: no test specified\" && exit 1",
-    "build-css": "sass scss/style.scss styles.css"
+    "build-css": "sass src/styling.css static/css/styling.css"
   },
   "author": "UrbanUsling <philip_akca@hotmail.com>",
   "license": "MIT",

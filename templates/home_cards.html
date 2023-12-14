@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App</title>
+</head>
+<body>
+    <h3 class="headers" style="margin-bottom: 20px;">Toppval av filmer och artister enlig våra användare</h3>
+    <!-- Place your title, text, and image link here -->
+    <div class="row row-cols-1 row-cols-md-6 g-4 justify-content-center">
+        <div id="root1" data-title="Gone with the wind" data-text="Höjdpunkten i Hollowooods filmskapande. Stort projekt av en populär bok om ett kontroversiellt tema. Står sig än idag" data-img-src="static/images/Gonew.jpg"></div>
+        <div id="root2" data-title="Hedy Lamarr" data-text="'The most beautiful woman in the world' kallades hon av sin agent. Hon flydde europa innan kriget och la grunden för dagens wifi när hon tog fram teknik för att styra torpeder" data-img-src="static/images/Hedy.jpg"></div>
+        <div id="root3" data-title="Humphrey Bogart" data-text="Hårdkokt cyniker som var enorm under 30- och 40-talet. Han hade ofta ett hjärta under den tuffa fasaden" data-img-src="static/images/Humphrey.jpg"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/cardTemplate.js') }}"></script>
+</body>
+</html>

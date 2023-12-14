@@ -1,0 +1,22 @@
+.image-slider-container {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.image-slider-title {
+  text-align: center;
+}
+
+.image-slide {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.image-slide.active {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=styling.css.map */

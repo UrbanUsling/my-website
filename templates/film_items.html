@@ -1,19 +1,29 @@
 
 
-<div class ="row">
+<div class ="row container">
+    <div class ="col-1">
+        <img src="{{ url_for('static', filename='images/film' + film.id|string + '.jpg') }}" class="img-fluid rounded-start" alt="...">
+    </div>
     <div class = "col-5">
-        <h5 style="margin-bottom: 4px; padding-bottom: 4px;">{{film['title']}}</h5>
+        <h5 style="margin-bottom: 4px; padding-bottom: 4px; padding-top: 20px;">{{film['title']}}</h5>
         <div>
             <b>Skådespelare:</b>{{film['actors']}}
         </div>
-        <div class="border-bottom"; style = "margin-bottom: 4px; padding-bottom: 4px;">
+        <div class="border-bottom"; style = "margin-bottom: 4px; padding-bottom: 40px;">
             <b>Utgivningsår:</b>{{film['releaseYear']}}
         </div>
     </div>
+    <div class ="col-2">
+        <b>Pris(Kr): </b>{{film['price']}}
+    </div> 
         <div class ="col-1">
-            <a href = "mailto:filmHaven@hotmail.com?subject=Best%C3%A4llning%20av {{film['title']}}!&body=Jag%20%C3%B6nskar%20best%C3%A4lla%20ett%20exemplar%20av {{film['title']}}%0D%0A%0D%0AMitt%20namn%3A%3Cfyll%20i%20ditt%20namn%20h%C3%A4r%3E%0D%0A%0D%0AMin%20adress%3A%3Cfyll%20i%20din%20adress%20h%C3%A4r%3E%0D%0A%0D%0AMitt%20telefonnummer%3A%3Cfyll%20i%20ditt%20telefonnummer%20h%C3%A4r%3E" target="_blank" type="button" class="btn btn-primary">Maila</a>
-        </div>
-        <div class ="col-1">
-            <a href="/film/{{film['id']}}" type="button" class="btn btn-primary">Sida</a>
+            <a href="/film/{{film['id']}}" type="button" class="btn btn-primary">Info</a>
+        </div>        
+        <div class="col-1">
+            {% if film['copies'] > 0 %}
+                <a href="#" type="button" class="btn btn-primary">Köp</a>
+            {% else %}
+                <span class="text-muted">Tillfälligt slut</span>
+            {% endif %}
         </div>
 </div>

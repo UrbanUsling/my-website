@@ -5,18 +5,15 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    <h1 style ="margin-bottom: 20px;">{{greet}}Hej Pa</h1>
-    <div class ='text-center container' style = "margin-left: 35%;">{% for film in films%}
-        {% include 'film_items.html' %}
-        {% endfor %}
-    </div>
-        {% include 'homePhotos.html' %}
+    <h1 class= "headers" style ="margin-bottom: 20px;">Filmvärldens affär och fansite</h1>
+    <div id="home"></div>
+    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+        {% include 'home_cards.html' %}
     <div class="container">
         {% include 'application_form.html' %}
     </div>
         {% include 'footer.html' %}
-        <div id="root"></div>  
-        <script src="static/js/bundle.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
            
 </body>

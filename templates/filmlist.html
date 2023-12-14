@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'bootstrapEtc.html' %}
+    <title>Filmer</title>
+</head>
+<body> 
+    {% include 'nav.html' %}
+    <div class ='text-center container' style="margin-top: 30px;">
+        {% for film in films%}
+        {% include 'film_items.html' %}
+        {% endfor %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
