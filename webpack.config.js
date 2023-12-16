@@ -3,8 +3,9 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: './src/home.tsx',
-    cardTemplate: "./src/cardTemplate.tsx"
+    imageLoop: './src/ImageLoop.tsx',
+    cardTemplate: "./src/cardTemplate.tsx",
+    script: "./src/home.ts"
 },
   output: {
     filename: '[name].js',

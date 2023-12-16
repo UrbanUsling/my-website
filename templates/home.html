@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     {% include 'bootstrapEtc.html' %}
+    <title>Filmvärlden</title>
 </head>
 <body>
     {% include 'nav.html' %}
     <h1 class= "headers" style ="margin-bottom: 20px;">Filmvärldens affär och fansite</h1>
     <div id="home"></div>
-    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/imageLoop.js') }}"></script>
         {% include 'home_cards.html' %}
     <div class="container">
         {% include 'application_form.html' %}

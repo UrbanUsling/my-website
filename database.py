@@ -1,6 +1,7 @@
 import select
 from sqlalchemy import create_engine, text, MetaData, Table
 import configparser
+import os
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -70,3 +71,29 @@ def confirm_newsletter(full_name, email):
             return True  # Email added successfully
         else:
             return False  # Email already exists
+        
+def get_number_of_cards_from_file():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(BASE_DIR, 'static', 'textfiles', 'movie_data.txt')
+
+    # Implement logic to read the number of cards from the text file
+    # For example, you can count the number of non-empty lines in the file
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        return len([line.strip() for line in lines if line.strip()])
+
+def search_films_by_title(card_title):
+    # Connect to the database
+    with engine.connect() as connection:
+        # Execute a SELECT query to fetch films that contain the card title in the 'title' or 'actors' column
+        query = text("SELECT * FROM films WHERE title LIKE :card_title OR actors LIKE :card_title").bindparams(card_title=f"%{card_title}%")
+        result = connection.execute(query)
+        
+        # Fetch all rows as a list of dictionaries
+        rows = result.fetchall()
+        column_names = result.keys()
+        rows_dict_list = [dict(zip(column_names, row)) for row in rows]
+
+    return rows_dict_list
+
+

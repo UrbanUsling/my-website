@@ -1,8 +1,9 @@
 from flask import Flask, render_template, jsonify, request
-from database import load_films_from_db #"kan importera från andra filer"
+from database import get_number_of_cards_from_file, load_films_from_db, search_films_by_title #"kan importera från andra filer"
 from database import load_film_from_db, confirm_newsletter, load_newsletters_from_db
 from sqlalchemy import text, MetaData, Table
 from email_validator import validate_email, EmailNotValidError
+
 
 
 
@@ -12,7 +13,25 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     films_data = load_films_from_db()
-    return render_template('home.html', films=films_data, greet='Hej')
+    num_cards = get_number_of_cards_from_file()
+    return render_template('home.html', films=films_data, num_cards=num_cards)
+
+@app.route("/search_films", methods=['POST'])
+def search_films():
+    # Get the card title from the request. API för react cardTemplate
+    card_title = request.form.get('card_title')
+    print(card_title)
+
+    # Perform the search
+    search_results = search_films_by_title(card_title)
+    
+
+    # Return the search results as JSON
+    return jsonify(search_results)
+@app.route("/filmlist/<card_title>")
+def film_list_filtered(card_title):
+    films_data = search_films_by_title(card_title)
+    return render_template('filmlist.html', films=films_data)
 
 @app.route("/filmlist")
 def film_list():
