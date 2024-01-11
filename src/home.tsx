@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
+
 window.onload = function () {
   const filePath = 'static/textfiles/villkor.txt';
   const outputElement = document.getElementById('termsOutput');

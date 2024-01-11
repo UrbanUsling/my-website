@@ -71,3 +71,15 @@ input[type="email"] {
 #iframeContainer {
     margin-top: 15px;
 }
+#video {
+    max-width: 550px;
+    max-height: auto;
+  }
+  
+  .card-body {
+    padding: 20px; /* Adjust padding for better spacing */
+  }
+  
+  .btn-purchase {
+    margin-right: 10px; /* Adjust margin for better spacing */
+  }

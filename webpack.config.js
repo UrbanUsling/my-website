@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     imageLoop: './src/ImageLoop.tsx',
     cardTemplate: "./src/cardTemplate.tsx",
-    script: "./src/home.tsx"
+    script: "./src/home.tsx",
+    youtube: "./src/Youtube.tsx"
 },
   output: {
     filename: '[name].js',

@@ -6,10 +6,13 @@
 </head>
 <body>
     {% include 'nav.html' %}
+    <div class="container">
     <h1 class= "headers" style ="margin-bottom: 20px;">Filmvärldens affär och fansite</h1>
     <div id="home"></div>
     <script src="{{ url_for('static', filename='js/imageLoop.js') }}"></script>
         {% include 'home_cards.html' %}
+
+
     <div class="container">
         <div id="home2"></div>
     </div>
