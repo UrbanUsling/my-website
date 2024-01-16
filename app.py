@@ -10,8 +10,9 @@ from email_validator import validate_email, EmailNotValidError
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello_world():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
     films_data = load_films_from_db()
     num_cards = get_number_of_cards_from_file()
     return render_template('home.html', films=films_data, num_cards=num_cards)
@@ -33,22 +34,21 @@ def film_list_filtered(card_title):
     films_data = search_films_by_title(card_title)
     return render_template('filmlist.html', films=films_data)
 
-@app.route("/filmlist")
-def film_list():
-    films_data = load_films_from_db()
-    return render_template('filmlist.html', films=films_data)
+
 
 @app.route("/films")
 def list_films():
     films_data = load_films_from_db()
     return jsonify(films_data)
 
+@app.route("/filmspage")
+
 @app.route("/newsletter")
 def list_newsletter():
     newsletter_data = load_newsletters_from_db()
     return jsonify(newsletter_data)
 
-@app.route("/film/<int:id>")
+@app.route("/filmmmmmm/<int:id>")
 def list_film(id):
     film = load_film_from_db(id)
     if film:

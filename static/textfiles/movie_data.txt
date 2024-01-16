@@ -9,7 +9,3 @@ static/images/Hedy.jpg
 Humphrey Bogart
 Hårdkokt cyniker som var enorm under 30- och 40-talet. Han hade ofta ett hjärta under den tuffa fasaden
 static/images/Humphrey.jpg
-
-The godfather
-iyghupojpijåpojpkj
-static\images\Gonew.jpg

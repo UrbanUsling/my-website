@@ -3,14 +3,13 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    imageLoop: './src/ImageLoop.tsx',
-    cardTemplate: "./src/cardTemplate.tsx",
+    
     script: "./src/index.tsx",
-    youtube: "./src/Youtube.tsx"
+    
 },
   output: {
     filename: '[name].js',
-    publicPath: "/static/js/",
+    publicPath: "/static/js/", 
     //path: path.resolve(__dirname, 'public')//current and absolute path joined together
     path: path.resolve(__dirname, 'static', 'js'),
   },
@@ -21,6 +20,11 @@ module.exports = {
             use: 'ts-loader',
             exclude: /node_modules/,
             include: [path.resolve(__dirname, 'src')]//absolute. only files from this folder
+        },
+        {
+          test: /\.css$/,
+          exclude: /\.tsx?$/,
+          use: ['style-loader', 'css-loader'],
         }
     ]
 
@@ -29,15 +33,14 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   devServer: {
+    historyApiFallback: true,
     static: {
-        directory: path.resolve(__dirname, 'static'), // Specify your public directory
-      },
-    compress: true,
-    port: 8080, // adjust the port number as needed
-    proxy: {
-        '/': 'http://localhost:5000', // Adjust the URL based on your Flask server's address
-        '/confirmation': 'http://localhost:5000', // Adjust the URL based on your Flask server's address
+      directory: path.resolve(__dirname, 'static'),
     },
-
+    compress: true,
+    port: 8080,
+    proxy: {
+      '/api': 'http://localhost:5000', // Adjust the URL based on your Flask server's address
+    },
   },
 };
