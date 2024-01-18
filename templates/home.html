@@ -7,10 +7,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="headers" style="margin-bottom: 20px;">Filmvärldens affär och fansite</h1>
+        
         <div id="root"></div>
-        <!-- Consider removing this line if you're not using films data on the client side -->
-        <div id="films-data" style="display: none;">{{ films | tojson | safe }}</div>
+        <!-- <div id="films-data" style="display: none;">{{ films | tojson | safe }}</div> -->
+        
 
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     </div>

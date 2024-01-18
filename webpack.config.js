@@ -40,7 +40,7 @@ module.exports = {
     compress: true,
     port: 8080,
     proxy: {
-      '/api': 'http://localhost:5000', // Adjust the URL based on your Flask server's address
+      '/': 'http://localhost:5000', // Adjust the URL based on your Flask server's address
     },
   },
 };

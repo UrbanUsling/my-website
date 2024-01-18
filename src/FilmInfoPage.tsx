@@ -1,4 +1,3 @@
-// FilmInfoPage.tsx
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import MovieClip from './MovieClip';
@@ -14,9 +13,12 @@ interface Film {
   link?: string;
 }
 
-const FilmInfoPage: React.FC = () => {
+interface FilmInfoPageProps {
+  filmsData: Film[];
+}
+
+const FilmInfoPage: React.FC<FilmInfoPageProps> = ({ filmsData }) => {
   const { id } = useParams<{ id: string }>();
-  const filmsData: Film[] = JSON.parse((document.getElementById('films-data') as HTMLDivElement)?.innerText || '[]');
   const filmData = filmsData.find(film => film.id.toString() === id);
 
   if (!filmData) {
@@ -73,4 +75,3 @@ const FilmInfoPage: React.FC = () => {
 };
 
 export default FilmInfoPage;
-

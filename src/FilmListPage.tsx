@@ -1,22 +1,15 @@
 import React from 'react';
+import useFilmsData from './components/useFilmsData';
 import { Link } from 'react-router-dom';
 
-interface Film {
-  id: number;
-  title: string;
-  actors: string;
-  releaseYear: number;
-  price: number;
-  copies: number;
-}
+
 
 interface FilmListPageProps {
-  films: Film[];
+  // You can pass additional props if needed
 }
 
-const FilmListPage: React.FC<FilmListPageProps> = ({ films }) => {
-  // Access films data from the hidden element
-  const filmsData: Film[] = JSON.parse((document.getElementById('films-data') as HTMLDivElement)?.innerText || '[]');
+const FilmListPage: React.FC<FilmListPageProps> = () => {
+  const filmsData = useFilmsData();
 
   return (
     <div className="container">
@@ -44,7 +37,7 @@ const FilmListPage: React.FC<FilmListPageProps> = ({ films }) => {
             <b>Pris(Kr): </b>{film.price}
           </div>
           <div className="col-1">
-          <Link to={`/film/${film.id}`} className="btn btn-primary">
+            <Link to={`/film/${film.id}`} className="btn btn-primary">
               Info
             </Link>
           </div>
