@@ -5,6 +5,7 @@ import ImageLoop from './ImageLoop';
 import CardComponentWrapper from './CardComponent';
 import FilmListPage from './FilmListPage';
 import FilmInfoPage from './FilmInfoPage';
+import MovieClip from './MovieClip';
 
 const Home: React.FC = () => {
   
@@ -14,12 +15,14 @@ const Home: React.FC = () => {
       <Router>
         <h1 className="headers">Filmvärldens affär och fansite</h1>
         <NavbarComponent />
+        <div className="d-flex justify-content-center align-items-center"><MovieClip /></div>
+        
+        
         <Routes>
           <Route
             path="/filmlist"
             element={
               <>
-                <ImageLoop />
                 <FilmListPage />
               </>
             }

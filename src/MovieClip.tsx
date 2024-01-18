@@ -1,33 +1,25 @@
-import React, { useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
 import YouTube from 'react-youtube';
 
-interface MovieClipProps {
-  videoId: string | null; // Allow for null value
-}
+interface MovieClipProps {}
 
-const MovieClip: React.FC<MovieClipProps> = ({ videoId }) => {
-  useEffect(() => {
-    if (videoId) {
-      const root = createRoot(document.getElementById('clip')!);
+const MovieClip: React.FC<MovieClipProps> = () => {
+  // Fixed YouTube video ID
+  const videoId = 'WuC2r8OMt0c';
 
-      // Options for the YouTube component
-      const options = {
-        height: '310', // Set the height as needed
-        width: '550', // Set the width as needed
-        playerVars: {
-          autoplay: 1,
-          controls: 1,
-        },
-      };
+  // Options for the YouTube component
+  const options = {
+    playerVars: {
+      autoplay: 1,
+      controls: 1,
+    },
+  };
 
-      // Render the MovieClip component with the retrieved videoId and options
-      root.render(<YouTube videoId={videoId} opts={options} />);
-    }
-  }, [videoId]);
-
-  return null;
+  return (
+    <div>
+      <YouTube videoId={videoId} opts={options} />
+    </div>
+  );
 };
 
 export default MovieClip;
-
