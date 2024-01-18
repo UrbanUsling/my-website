@@ -48,12 +48,12 @@ def list_newsletter():
     newsletter_data = load_newsletters_from_db()
     return jsonify(newsletter_data)
 
-@app.route("/filmmmmmm/<int:id>")
+@app.route("/filmm/<int:id>")
 def list_film(id):
     film = load_film_from_db(id)
     if film:
         #template_name = f'filmpage{id}.html'
-        return render_template('filmpage1.html', film=film)
+        return jsonify(film)
     else:
         return jsonify({"error": "Film not found"}), 404
     

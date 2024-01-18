@@ -13,6 +13,7 @@ const useFilmsData = () => {
   const [filmsData, setFilmsData] = useState<Film[]>([]);
 
   useEffect(() => {
+    console.log("hämtar filmer")
     const fetchFilmsData = async () => {
       try {
         const response = await fetch('/films'); // Use the new API endpoint
