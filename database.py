@@ -3,10 +3,8 @@ from sqlalchemy import create_engine, text, MetaData, Table
 import configparser
 import os
 
-import os
 db_username = os.environ.get('DB_USERNAME')
 db_password = os.environ.get('DB_PASSWORD')
-
 db_connection_string= f"mysql+pymysql://{db_username}:{db_password}@aws.connect.psdb.cloud/webshop?charset=utf8mb4"
 engine = create_engine(db_connection_string,
         connect_args={
